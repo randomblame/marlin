@@ -601,9 +601,9 @@
   //#define DEFAULT_bedKd 305.4
 
   // Mega Zero 2 stock bed/board/firmware, 70 degrees.
-  #define DEFAULT_bedKp 350
-  #define DEFAULT_bedKi 63
-  #define DEFAULT_bedKd 452
+  #define DEFAULT_bedKp 52.18
+  #define DEFAULT_bedKi 8.46
+  #define DEFAULT_bedKd 214.57
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
