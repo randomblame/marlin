@@ -456,7 +456,8 @@
  *   998 : Dummy Table that ALWAYS reads 25°C or the temperature defined below.
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  */
-#define TEMP_SENSOR_0 1
+#define TEMP_SENSOR_0 5
+// now using v6 hotend Semitec 104GT2 thermistor
 #if BOTH(KAD_SKR_E3_TURBO, KAD_SKR_E3_TURBO_2E)
   #define TEMP_SENSOR_1 1
 #else
@@ -514,7 +515,7 @@
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
 // (Use MINTEMP for thermistor short/failure protection.)
-#define HEATER_0_MAXTEMP 260
+#define HEATER_0_MAXTEMP 285
 #define HEATER_1_MAXTEMP 260
 #define HEATER_2_MAXTEMP 260
 #define HEATER_3_MAXTEMP 260
@@ -531,8 +532,8 @@
 
 // Comment the following line to disable PID and enable bang-bang.
 #define PIDTEMP
-#define BANG_MAX 255     // Limits current to nozzle while in bang-bang mode; 255=full current
-#define PID_MAX BANG_MAX // Limits current to nozzle while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
+#define BANG_MAX 200     // Limits current to nozzle while in bang-bang mode; 255=full current
+#define PID_MAX 175 // Limits current to nozzle while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
 #define PID_K1 0.95      // Smoothing factor within any PID loop
 
 #if ENABLED(PIDTEMP)
@@ -548,13 +549,13 @@
   #if ENABLED(PID_PARAMS_PER_HOTEND)
     // Specify between 1 and HOTENDS values per array.
     // If fewer than EXTRUDER values are provided, the last element will be repeated.
-    #define DEFAULT_Kp_LIST {  17.72,  17.72 }
-    #define DEFAULT_Ki_LIST {   1.18,   1.18 }
-    #define DEFAULT_Kd_LIST {  66.76,  66.76 }
+    #define DEFAULT_Kp_LIST {  6.37,  6.37 }
+    #define DEFAULT_Ki_LIST {   0.61,   0.61 }
+    #define DEFAULT_Kd_LIST {  16.72,  16.72 }
   #else
-    #define DEFAULT_Kp  22.63
-    #define DEFAULT_Ki   1.93
-    #define DEFAULT_Kd  66.22
+    #define DEFAULT_Kp  6.37
+    #define DEFAULT_Ki   0.61
+    #define DEFAULT_Kd  16.72
   #endif
 #endif // PIDTEMP
 
@@ -1079,7 +1080,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -40, -12, -2.89 }
+#define NOZZLE_TO_PROBE_OFFSET { 39, 5, -0.8 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
